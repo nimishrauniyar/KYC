@@ -14,7 +14,8 @@ function validateEnv() {
 module.exports = {
   env: process.env.NODE_ENV || 'development',
   port: Number(process.env.PORT || 4000),
-  mongoUri: process.env.MONGODB_URI,
+  mongoUri: process.env.MONGODB_URI ? process.env.MONGODB_URI.trim() : '',
+
   jwtSecret: process.env.JWT_SECRET,
   jwtExpiresIn: process.env.JWT_EXPIRES_IN || '7d',
   corsOrigin: process.env.CORS_ORIGIN || '*',
